@@ -13,7 +13,6 @@ Source0:        https://github.com/lirios/%{modulename}/%{?snaphash:archive}%{!?
 
 BuildRequires:  gcc-c++
 BuildRequires:  qt5-qtbase-static >= 5.9.0
-BuildRequires:  qt5-qtbase-private-devel
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5DBus)
@@ -26,6 +25,9 @@ BuildRequires:  pkgconfig(xkbcommon)
 BuildRequires:  pkgconfig(libdrm)
 BuildRequires:  pkgconfig(gbm)
 BuildRequires:  liri-rpm-macros
+%if 0%{?fedora} >= 30
+BuildRequires:  qt5-qtbase-private-devel
+%endif
 
 %description
 This package includes a Qt platform plugin with support for kms and DRM.
